@@ -49,10 +49,10 @@ function App() {
         </div>
 
         <div className="relative z-10 w-full h-full flex flex-col items-start justify-center p-8">
-          <span className="text-white font-secondary text-base md:text-2xl lg:text-4xl mb-4">EXPRESS ˚ YOURSELF</span>
+          <span className="text-white font-secondary text-base lg:text-2xl mb-4">EXPRESS ˚ YOURSELF</span>
           <img 
             src="/eliza-os.png" 
-            alt="Eliza Studios" 
+            alt="Eliza OS logo" 
             className="w-auto h-auto max-w-[90%] lg:max-w-[70%] max-h-[25vh] object-contain pointer-events-none invert"
           />
         </div>
