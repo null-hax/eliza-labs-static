@@ -23,8 +23,8 @@ function App() {
         </ShaderGradientCanvas>
       </div>
 
-      <div className="relative z-10 w-full h-full text-white p-8 flex flex-col items-center justify-start py-32 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">
-        <h1 className="text-5xl mb-4">Eliza Studios</h1>
+      <div className="relative z-10 w-full h-full text-white p-8 flex flex-col items-start justify-center py-32 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">
+        <h1 className="text-9xl mb-4 font-bold text-black">ELIZA <span className="font-secondary">STUDIOS</span></h1>
       </div>
     </div>
   )
