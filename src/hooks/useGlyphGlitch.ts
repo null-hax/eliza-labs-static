@@ -10,10 +10,8 @@ export const useGlyphGlitch = (totalGlyphs: number) => {
   const [glitchingGlyphs, setGlitchingGlyphs] = useState<GlitchingGlyph[]>([])
 
   const triggerGlitch = useCallback(() => {
-    // Random number of glyphs to glitch (1-9)
     const glitchCount = Math.floor(Math.random() * 9) + 1
     
-    // Create new glitch instances
     const newGlitches: GlitchingGlyph[] = Array.from({ length: glitchCount }, () => ({
       index: Math.floor(Math.random() * totalGlyphs),
       temporaryGlyph: Math.floor(Math.random() * totalGlyphs) + 1,
@@ -22,8 +20,7 @@ export const useGlyphGlitch = (totalGlyphs: number) => {
 
     setGlitchingGlyphs(prev => [...prev, ...newGlitches])
 
-    // Stagger the reset of each glitch
-    newGlitches.forEach((glitch, i) => {
+    newGlitches.forEach((glitch) => {
       setTimeout(() => {
         setGlitchingGlyphs(prev => 
           prev.filter(g => g.index !== glitch.index)
@@ -34,7 +31,7 @@ export const useGlyphGlitch = (totalGlyphs: number) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() < 0.20) { // Increased to 20% chance
+      if (Math.random() < 0.20) {
         triggerGlitch()
       }
     }, 600)

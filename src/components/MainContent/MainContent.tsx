@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useState } from 'react'
 import { ShaderBackground } from '../ShaderBackground/ShaderBackground'
 import { useGlyphTransition } from '../../hooks/useGlyphTransition'
 import { motion } from 'framer-motion'

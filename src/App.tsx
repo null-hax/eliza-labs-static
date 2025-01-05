@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from 'react'
 import { Navbar } from './components/Navbar/Navbar'
 import { MainContent } from './components/MainContent/MainContent'
 import { LoadingSequence } from './components/LoadingSequence/LoadingSequence'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const App: FC = () => {
   const [isLoading, setIsLoading] = useState(true)
