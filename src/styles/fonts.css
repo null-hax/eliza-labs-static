@@ -1,0 +1,36 @@
+/* Neue Haas Grotesk Display */
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/Neue Haas/NHaasGroteskDSStd-55Rg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/Neue Haas/NHaasGroteskDSStd-56It.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/Neue Haas/NHaasGroteskDSStd-65Md.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/Neue Haas/NHaasGroteskDSStd-75Bd.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Tronica Mono */
+@font-face {
+  font-family: 'Tronica';
+  src: url('/fonts/Tronica/Tronica Mono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 

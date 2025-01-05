@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative w-screen h-screen overflow-hidden">
+      <div className="fixed inset-0 z-0">
+        <ShaderGradientCanvas className="w-full h-full">
+          <ShaderGradient
+            type="waterPlane"
+            animate="on"
+            cDistance={2.4}
+            cPolarAngle={95}
+            color1="#ff6a1a"
+            color2="#ec5a11"
+            color3="#FD4912"
+            brightness={1.2}
+            grain="off"
+            uDensity={1.8}
+            uFrequency={5.5}
+            uSpeed={0.2}
+            uStrength={3}
+          />
+        </ShaderGradientCanvas>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className="relative z-10 w-full h-full text-white p-8 flex flex-col items-center justify-start py-32 [text-shadow:0_2px_4px_rgba(0,0,0,0.1)]">
+        <h1 className="text-5xl mb-4">Eliza Studios</h1>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
