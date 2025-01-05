@@ -3,7 +3,7 @@ import { ShaderBackground } from '../ShaderBackground/ShaderBackground'
 
 export const MainContent: FC = () => {
   return (
-    <div className="relative flex-1">
+    <div className="relative w-full h-full">
       <ShaderBackground />
       <div className="relative z-10 w-full h-full flex flex-col items-start justify-center p-8">
         <img 
