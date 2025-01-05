@@ -18,6 +18,7 @@ export const useGlyphTransition = (
 ) => {
   const [transitioningGlyph, setTransitioningGlyph] = useState<TransitioningGlyph | null>(null)
   const lastIndex = useRef<number | null>(null)
+  const AVAILABLE_GLYPHS = 11 // Total number of glyph images we have
 
   const triggerTransition = useCallback(() => {
     let index: number
@@ -33,7 +34,7 @@ export const useGlyphTransition = (
 
     let newGlyph: number
     do {
-      newGlyph = Math.floor(Math.random() * totalGlyphs) + 1
+      newGlyph = Math.floor(Math.random() * AVAILABLE_GLYPHS) + 1
     } while (newGlyph === currentGlyph)
     
     const newTransition: TransitioningGlyph = { index, newGlyph }

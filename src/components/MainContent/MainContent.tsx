@@ -1,17 +1,34 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { ShaderBackground } from '../ShaderBackground/ShaderBackground'
 import { useGlyphTransition } from '../../hooks/useGlyphTransition'
 import { motion } from 'framer-motion'
 
-const GLYPH_COUNT = 11
+const DESKTOP_GLYPH_COUNT = 19
+const MOBILE_GLYPH_COUNT = 11   
+const AVAILABLE_GLYPHS = 11
 
 export const MainContent: FC = () => {
+  const [isMobile, setIsMobile] = useState(false)
+  const glyphCount = isMobile ? MOBILE_GLYPH_COUNT : DESKTOP_GLYPH_COUNT
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const [currentGlyphs, setCurrentGlyphs] = useState(() => {
-    const glyphNumbers = Array.from({ length: GLYPH_COUNT }, (_, i) => i + 1)
-    return glyphNumbers.sort(() => Math.random() - 0.5)
+    const glyphNumbers = Array.from({ length: DESKTOP_GLYPH_COUNT }, () => 
+      Math.floor(Math.random() * AVAILABLE_GLYPHS) + 1
+    )
+    return glyphNumbers
   })
 
-  const { transitioningGlyph, config } = useGlyphTransition(GLYPH_COUNT, (index, newGlyph) => {
+  const { transitioningGlyph, config } = useGlyphTransition(glyphCount, (index, newGlyph) => {
     setCurrentGlyphs(prev => {
       const newGlyphs = [...prev]
       newGlyphs[index] = newGlyph
@@ -29,8 +46,11 @@ export const MainContent: FC = () => {
           className="w-auto h-auto max-w-[90%] lg:max-w-[70%] max-h-[25vh] object-contain pointer-events-none invert"
         />
         
-        <div className="flex flex-row flex-wrap gap-4 items-center">
-          {currentGlyphs.map((num, index) => {
+        <div className={`
+          w-[90%] lg:w-[70%]
+          flex flex-row flex-wrap justify-between gap-4
+        `}>
+          {currentGlyphs.slice(0, glyphCount).map((num, index) => {
             const isTransitioning = transitioningGlyph?.index === index
             
             return (
@@ -47,7 +67,7 @@ export const MainContent: FC = () => {
                 <motion.img
                   src={`/glyphs/${num}.png`}
                   alt={`Glyph ${num}`}
-                  className="w-6 h-6 lg:w-10 lg:h-10 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="w-2 h-2 lg:w-4 lg:h-4 object-contain opacity-80 hover:opacity-100 transition-opacity pointer-events-none"
                   data-glyph-index={index}
                   data-glyph-number={num}
                   transition={{
