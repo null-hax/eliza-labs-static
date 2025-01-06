@@ -14,7 +14,9 @@ export const ShaderBackground: FC = () => {
       
       const ctx = canvas.getContext('webgl2') || canvas.getContext('webgl')
       if (ctx && ctx.getContextAttributes()) {
-        setIsShaderLoaded(true)
+        setTimeout(() => {
+          setIsShaderLoaded(true)
+        }, 100)
         return
       }
       
@@ -27,7 +29,7 @@ export const ShaderBackground: FC = () => {
   return (
     <div 
       ref={canvasRef}
-      className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+      className={`w-full h-full transition-opacity duration-700 ${
         isShaderLoaded ? 'opacity-100' : 'opacity-0'
       }`}
     >

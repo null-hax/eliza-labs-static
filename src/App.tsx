@@ -12,7 +12,7 @@ const App: FC = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024) // 1024px matches Tailwind's lg breakpoint
+      setIsMobile(window.innerWidth < 1024)
     }
     
     checkMobile()
@@ -27,10 +27,10 @@ const App: FC = () => {
   }, [])
 
   const navbarAnimation = {
-    initial: isMobile ? { y: -100 } : { x: -50 },
+    initial: isMobile ? { y: -100 } : { x: -100 },
     animate: { 
       y: isMobile ? (showContent ? 0 : -100) : 0,
-      x: isMobile ? 0 : (showContent ? 0 : -50)
+      x: isMobile ? 0 : (showContent ? 0 : -100)
     },
     transition: { duration: shouldReduceMotion ? 0 : 0.5 }
   }
@@ -45,13 +45,11 @@ const App: FC = () => {
       <motion.div 
         className="relative w-screen h-screen overflow-hidden flex flex-col lg:flex-row bg-[#ff6a1a]"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        style={{ 
-          opacity: showContent ? 1 : 0,
-          transition: 'opacity 0.3s ease-out'
-        }}
+        animate={{ opacity: showContent ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.div
+          className="relative z-20"
           {...navbarAnimation}
         >
           <Navbar />
