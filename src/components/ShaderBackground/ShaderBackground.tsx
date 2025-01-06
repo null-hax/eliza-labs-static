@@ -1,6 +1,15 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
+// Suppress shader initialization logs
+if (typeof window !== 'undefined') {
+  const originalConsoleLog = console.log
+  console.log = (...args) => {
+    if (args[0]?.includes?.('material (onInit)')) return
+    originalConsoleLog(...args)
+  }
+}
+
 export const ShaderBackground: FC = () => {
   const [isShaderLoaded, setIsShaderLoaded] = useState(false)
   const canvasRef = useRef<HTMLDivElement>(null)
@@ -14,9 +23,7 @@ export const ShaderBackground: FC = () => {
       
       const ctx = canvas.getContext('webgl2') || canvas.getContext('webgl')
       if (ctx && ctx.getContextAttributes()) {
-        setTimeout(() => {
-          setIsShaderLoaded(true)
-        }, 100)
+        setIsShaderLoaded(true)
         return
       }
       
@@ -29,7 +36,7 @@ export const ShaderBackground: FC = () => {
   return (
     <div 
       ref={canvasRef}
-      className={`w-full h-full transition-opacity duration-700 ${
+      className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
         isShaderLoaded ? 'opacity-100' : 'opacity-0'
       }`}
     >
