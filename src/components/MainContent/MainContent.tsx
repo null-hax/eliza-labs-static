@@ -39,7 +39,7 @@ export const MainContent: FC = () => {
   return (
     <div className="relative w-full h-full">
       <ShaderBackground />
-      <div className="relative z-10 w-full h-full flex flex-col items-start justify-center p-8 gap-8">
+      <div className="relative z-10 w-full h-full flex flex-col items-center lg:items-start justify-center p-8 gap-8">
         <img 
           src="/eliza-os.png" 
           alt="Eliza OS logo" 
