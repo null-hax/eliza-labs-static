@@ -100,9 +100,11 @@ export const MainContent: FC = () => {
 
         <div 
           ref={formRef} 
-          className="relative min-h-screen flex items-center justify-center bg-black/90 backdrop-blur-sm border-l border-[#ff6a1a]"
+          className="relative min-h-screen flex items-center justify-center bg-black/90 backdrop-blur-sm border-l border-[#ff6a1a] py-20"
         >
-          <ContactForm />
+          <div className="w-full px-4">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>
