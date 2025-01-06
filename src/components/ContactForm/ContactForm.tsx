@@ -21,19 +21,28 @@ export const ContactForm: FC = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    if (process.env.NODE_ENV === 'development') {
-      // Simulate API call in development
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      console.log('Form submitted:', formData)
+    try {
+      const response = await fetch('https://eliza.gg/api/partnerships', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+      })
+      
+      if (!response.ok) throw new Error('Submission failed')
+      
       setFormData({
         name: '',
-        category: 'film',
+        category: '',
         details: '',
         contactInfo: ''
       })
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsSubmitting(false)
     }
-    
-    setIsSubmitting(false)
   }
 
   return (
