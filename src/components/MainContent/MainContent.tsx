@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { ShaderBackground } from '../ShaderBackground/ShaderBackground'
 import { useGlyphTransition } from '../../hooks/useGlyphTransition'
 import { motion } from 'framer-motion'
@@ -9,8 +9,8 @@ const MOBILE_GLYPH_COUNT = 11
 const AVAILABLE_GLYPHS = 11
 
 export const MainContent: FC = () => {
-  const formRef = useRef<HTMLDivElement>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
   const glyphCount = isMobile ? MOBILE_GLYPH_COUNT : DESKTOP_GLYPH_COUNT
 
   useEffect(() => {
@@ -38,10 +38,6 @@ export const MainContent: FC = () => {
     })
   })
 
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <div className="relative w-full h-full overflow-y-auto">
       <div className="fixed inset-0 z-0">
@@ -49,7 +45,7 @@ export const MainContent: FC = () => {
       </div>
       
       <div className="relative z-[1]">
-        <div className="w-full h-screen flex flex-col items-center lg:items-start justify-center p-8 gap-8 sticky top-0">
+        <div className="w-full h-screen flex flex-col items-center lg:items-start justify-center p-8 gap-8">
           <img 
             src="/eliza-os.png" 
             alt="Eliza OS logo" 
@@ -91,21 +87,17 @@ export const MainContent: FC = () => {
           </div>
 
           <button
-            onClick={scrollToForm}
-            className="mt-8 px-6 py-2 font-secondary rounded focus:outline-none border-none hover:bg-black/60"
+            onClick={() => setIsContactFormOpen(true)}
+            className="mt-8 px-6 py-2 text-sm font-secondary rounded focus:outline-none border-none hover:bg-black/60"
           >
-            Inquiries
+            INQUIRIES
           </button>
         </div>
 
-        <div 
-          ref={formRef} 
-          className="relative min-h-screen flex items-center justify-center bg-black/90 backdrop-blur-sm border-l border-[#ff6a1a] py-20"
-        >
-          <div className="w-full px-4">
-            <ContactForm />
-          </div>
-        </div>
+        <ContactForm 
+          isOpen={isContactFormOpen}
+          onClose={() => setIsContactFormOpen(false)}
+        />
       </div>
     </div>
   )
