@@ -1,6 +1,15 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react'
 
+// Suppress shader initialization logs
+if (typeof window !== 'undefined') {
+  const originalConsoleLog = console.log
+  console.log = (...args) => {
+    if (args[0]?.includes?.('material (onInit)')) return
+    originalConsoleLog(...args)
+  }
+}
+
 export const ShaderBackground: FC = () => {
   const [isShaderLoaded, setIsShaderLoaded] = useState(false)
   const canvasRef = useRef<HTMLDivElement>(null)
