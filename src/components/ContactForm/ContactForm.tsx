@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 interface FormData {
   name: string
   category: '' | 'film' | 'advertising' | 'consulting' | 'music' | 'gaming' | 'events'
-  details: string
+  interests: string
   contactInfo: string
   source: string
 }
@@ -14,7 +14,7 @@ export const ContactForm: FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     category: '',
-    details: '',
+    interests: '',
     contactInfo: '',
     source: 'elizastudios.ai'
   })
@@ -38,7 +38,7 @@ export const ContactForm: FC = () => {
       setFormData({
         name: '',
         category: '',
-        details: '',
+        interests: '',
         contactInfo: '',
         source: 'elizastudios.ai'
       })
@@ -122,12 +122,12 @@ export const ContactForm: FC = () => {
         </div>
 
         <div>
-          <label className="block text-white text-sm mb-2" htmlFor="details">The Details</label>
+          <label className="block text-white text-sm mb-2" htmlFor="interests">The Details</label>
           <textarea
-            id="details"
+            id="interests"
             placeholder="Lay it out. What do you need?"
-            value={formData.details}
-            onChange={(e) => setFormData(prev => ({ ...prev, details: e.target.value }))}
+            value={formData.interests}
+            onChange={(e) => setFormData(prev => ({ ...prev, interests: e.target.value }))}
             className="w-full p-3 bg-black/50 border border-[#ff6a1a]/20 rounded-sm 
                      text-white/90 text-sm min-h-[120px]
                      focus:outline-none focus:border-[#ff6a1a]/40 focus:ring-1 focus:ring-[#ff6a1a]/20
