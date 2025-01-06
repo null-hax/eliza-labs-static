@@ -7,6 +7,7 @@ interface FormData {
   category: '' | 'film' | 'advertising' | 'consulting' | 'music' | 'gaming' | 'events'
   details: string
   contactInfo: string
+  source: string
 }
 
 export const ContactForm: FC = () => {
@@ -14,7 +15,8 @@ export const ContactForm: FC = () => {
     name: '',
     category: '',
     details: '',
-    contactInfo: ''
+    contactInfo: '',
+    source: 'elizastudios.ai'
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -37,7 +39,8 @@ export const ContactForm: FC = () => {
         name: '',
         category: '',
         details: '',
-        contactInfo: ''
+        contactInfo: '',
+        source: 'elizastudios.ai'
       })
 
       toast.success('Message sent successfully', {
