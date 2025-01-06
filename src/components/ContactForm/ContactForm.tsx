@@ -1,5 +1,6 @@
 import { FC, useState } from 'react'
 import { motion } from 'framer-motion'
+import { toast } from 'sonner'
 
 interface FormData {
   name: string
@@ -23,11 +24,11 @@ export const ContactForm: FC = () => {
     
     try {
       const response = await fetch('https://eliza.gg/api/partnerships', {
-          method: 'POST',
-          headers: {
+        method: 'POST',
+        headers: {
           'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+        },
+        body: JSON.stringify(formData),
       })
       
       if (!response.ok) throw new Error('Submission failed')
@@ -38,8 +39,19 @@ export const ContactForm: FC = () => {
         details: '',
         contactInfo: ''
       })
+
+      toast.success('Message sent successfully', {
+        className: 'bg-black border border-[#ff6a1a]/30',
+        descriptionClassName: 'text-white/80',
+        duration: 5000,
+      })
     } catch (error) {
       console.error('Error submitting form:', error)
+      toast.error('Failed to send message. Please try again.', {
+        className: 'bg-black border border-[#ff6a1a]/30',
+        descriptionClassName: 'text-white/80',
+        duration: 5000,
+      })
     } finally {
       setIsSubmitting(false)
     }

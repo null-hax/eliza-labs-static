@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar/Navbar'
 import { MainContent } from './components/MainContent/MainContent'
 import { LoadingSequence } from './components/LoadingSequence/LoadingSequence'
 import { motion, useReducedMotion } from 'framer-motion'
+import { Toaster } from 'sonner'
 
 const App: FC = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -37,6 +38,16 @@ const App: FC = () => {
 
   return (
     <>
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: 'black',
+            color: '#ff6a1a',
+            border: '1px solid rgba(255, 106, 26, 0.3)',
+          },
+        }}
+      />
       <LoadingSequence 
         isComplete={!isLoading}
         onComplete={() => setShowContent(true)} 
