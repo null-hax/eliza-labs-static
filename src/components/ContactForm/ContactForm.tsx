@@ -126,7 +126,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="name">Who's Asking?</label>
+                  <label className="block text-white text-sm mb-2" htmlFor="name">Who's asking?</label>
                   <input
                     type="text"
                     id="name"
@@ -142,7 +142,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="relative">
-                  <label className="block text-white text-sm mb-2" htmlFor="category">What Are We Talking About?</label>
+                  <label className="block text-white text-sm mb-2" htmlFor="category">What are we talking about?</label>
                   <div className="relative">
                     <select
                       id="category"
@@ -176,7 +176,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="interests">The Details</label>
+                  <label className="block text-white text-sm mb-2" htmlFor="interests">The details</label>
                   <textarea
                     id="interests"
                     placeholder="Lay it out. What do you need?"
@@ -191,7 +191,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="contactInfo">Where Can We Reach You?</label>
+                  <label className="block text-white text-sm mb-2" htmlFor="contactInfo">Where can we reach you?</label>
                   <input
                     type="text"
                     id="contactInfo"
