@@ -6,9 +6,9 @@ export const Navbar: FC = () => {
       <div className="w-full h-full flex lg:flex-col items-center justify-between">
         <div className="flex lg:flex-col items-center gap-8 p-4 lg:p-6 relative">
           <img 
-            src="/eliza.png" 
+            src="/elizab.png" 
             alt="Eliza" 
-            className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
+            className="w-10 h-10 lg:w-12 lg:h-12 object-contain grayscale"
           />
         </div>
 
