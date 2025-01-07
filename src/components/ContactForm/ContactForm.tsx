@@ -97,9 +97,9 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white/25 backdrop-blur-sm z-[100] pointer-events-auto"
+            className="fixed inset-0 bg-white/25 backdrop-blur-sm pointer-events-auto"
           />
-          <div className="fixed inset-0 flex items-center justify-center z-[100] p-4">
+          <div className="fixed inset-0 flex items-center justify-center p-4">
             <motion.div
               ref={formRef}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
