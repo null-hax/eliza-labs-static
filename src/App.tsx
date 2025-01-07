@@ -60,7 +60,7 @@ const App: FC = () => {
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.div
-          className="relative z-20"
+          className="relative z-10"
           {...navbarAnimation}
         >
           <Navbar />
