@@ -22,7 +22,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
     category: '',
     interests: '',
     contactInfo: '',
-    source: 'elizastudios.ai'
+    source: 'elizalabs.ai'
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -68,20 +68,20 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
         category: '',
         interests: '',
         contactInfo: '',
-        source: 'elizastudios.ai'
+        source: 'elizalabs.ai'
       })
 
       toast.success('Message sent successfully', {
-        className: 'bg-black border border-[#ff6a1a]/30',
-        descriptionClassName: 'text-white/80',
+        className: 'bg-white border border-[#002AF0]/30',
+        descriptionClassName: 'text-black/80',
         duration: 5000,
       })
       onClose()
     } catch (error) {
       console.error('Error submitting form:', error)
       toast.error('Failed to send message. Please try again.', {
-        className: 'bg-black border border-[#ff6a1a]/30',
-        descriptionClassName: 'text-white/80',
+        className: 'bg-white border border-[#002AF0]/30',
+        descriptionClassName: 'text-black/80',
         duration: 5000,
       })
     } finally {
@@ -97,7 +97,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-white/25 backdrop-blur-sm z-50"
           />
           <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
             <motion.div
@@ -106,16 +106,16 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="w-full max-w-lg bg-black backdrop-blur-md rounded border border-[#ff6a1a]/30 p-8 relative"
+              className="w-full max-w-lg bg-white text-black backdrop-blur-md rounded border border-[#002AF0]/30 p-8 relative"
             >
               <button
                 onClick={onClose}
                 className="absolute top-8 right-6 w-8 h-8
-                           border border-[#ff6a1a]/30 hover:border-[#ff6a1a]/40
-                           text-[#ff6a1a] bg-[#ff6a1a]/10 hover:bg-[#ff6a1a]/20 
+                           border border-[#002AF0]/30 hover:border-[#002AF0]/40
+                           text-[#002AF0] bg-[#002AF0]/10 hover:bg-[#002AF0]/20 
                            text-sm rounded-sm
                            transition-all duration-200 ease-out
-                           focus:outline-none focus:ring-2 focus:ring-[#ff6a1a]/20
+                           focus:outline-none focus:ring-2 focus:ring-[#002AF0]/20
                            flex items-center justify-center"
                 aria-label="Close modal"
               >
@@ -126,34 +126,34 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="name">Who's asking?</label>
+                  <label className="block text-black text-sm mb-2" htmlFor="name">Who's asking?</label>
                   <input
                     type="text"
                     id="name"
                     placeholder="Enter your name or company."
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full p-3 bg-black/50 border border-[#ff6a1a]/20 rounded-sm 
-                             text-white/90 text-sm
-                             focus:outline-none focus:border-[#ff6a1a]/40 focus:ring-1 focus:ring-[#ff6a1a]/20
-                             transition-colors placeholder:text-white/40"
+                    className="w-full p-3 bg-white/50 border border-[#002AF0]/20 rounded-sm 
+                             text-black/90 text-sm
+                             focus:outline-none focus:border-[#002AF0]/40 focus:ring-1 focus:ring-[#002AF0]/20
+                             transition-colors placeholder:text-black/40"
                     required
                   />
                 </div>
 
                 <div className="relative">
-                  <label className="block text-white text-sm mb-2" htmlFor="category">What are we talking about?</label>
+                  <label className="block text-black text-sm mb-2" htmlFor="category">What are we talking about?</label>
                   <div className="relative">
                     <select
                       id="category"
                       value={formData.category}
                       onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value as FormData['category'] }))}
-                      className="w-full p-3 bg-black/50 border border-[#ff6a1a]/20 rounded-sm 
-                               text-white/90 text-sm appearance-none
-                               focus:outline-none focus:border-[#ff6a1a]/40 focus:ring-1 focus:ring-[#ff6a1a]/20
+                      className="w-full p-3 bg-white/50 border border-[#002AF0]/20 rounded-sm 
+                               text-black/90 text-sm appearance-none
+                               focus:outline-none focus:border-[#002AF0]/40 focus:ring-1 focus:ring-[#002AF0]/20
                                transition-colors pr-10
-                               [&>option[value='']]:text-white/20
-                               [&:invalid]:text-white/40"
+                               [&>option[value='']]:text-black/20
+                               [&:invalid]:text-black/40"
                       required
                     >
                       <option value="" disabled>Choose the type of inquiry.</option>
@@ -166,7 +166,7 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
                       <svg 
-                        className="h-4 w-4 fill-[#ff6a1a]/60" 
+                        className="h-4 w-4 fill-[#002AF0]/60" 
                         viewBox="0 0 20 20"
                       >
                         <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" strokeWidth="1.5" stroke="currentColor" fill="none"/>
@@ -176,32 +176,32 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="interests">The details</label>
+                  <label className="block text-black text-sm mb-2" htmlFor="interests">The details</label>
                   <textarea
                     id="interests"
                     placeholder="Lay it out. What do you need?"
                     value={formData.interests}
                     onChange={(e) => setFormData(prev => ({ ...prev, interests: e.target.value }))}
-                    className="w-full p-3 bg-black/50 border border-[#ff6a1a]/20 rounded-sm 
-                             text-white/90 text-sm min-h-[120px]
-                             focus:outline-none focus:border-[#ff6a1a]/40 focus:ring-1 focus:ring-[#ff6a1a]/20
-                             transition-colors placeholder:text-white/40 resize-none"
+                    className="w-full p-3 bg-white/50 border border-[#002AF0]/20 rounded-sm 
+                             text-black/90 text-sm min-h-[120px]
+                             focus:outline-none focus:border-[#002AF0]/40 focus:ring-1 focus:ring-[#002AF0]/20
+                             transition-colors placeholder:text-black/40 resize-none"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-white text-sm mb-2" htmlFor="contactInfo">Where can we reach you?</label>
+                  <label className="block text-black text-sm mb-2" htmlFor="contactInfo">Where can we reach you?</label>
                   <input
                     type="text"
                     id="contactInfo"
                     placeholder="Email, phone, whatever works."
                     value={formData.contactInfo}
                     onChange={(e) => setFormData(prev => ({ ...prev, contactInfo: e.target.value }))}
-                    className="w-full p-3 bg-black/50 border border-[#ff6a1a]/20 rounded-sm 
-                             text-white/90 text-sm
-                             focus:outline-none focus:border-[#ff6a1a]/40 focus:ring-1 focus:ring-[#ff6a1a]/20
-                             transition-colors placeholder:text-white/40"
+                    className="w-full p-3 bg-white/50 border border-[#002AF0]/20 rounded-sm 
+                             text-black/90 text-sm
+                             focus:outline-none focus:border-[#002AF0]/40 focus:ring-1 focus:ring-[#002AF0]/20
+                             transition-colors placeholder:text-black/40"
                     required
                   />
                 </div>
@@ -209,12 +209,12 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full p-3 mt-4 border border-[#ff6a1a]/30 hover:border-[#ff6a1a]/40
-                           hover:from-[#ff6a1a]/20 hover:to-[#ff6a1a]/10
-                           text-[#ff6a1a] bg-[#ff6a1a]/10 hover:bg-[#ff6a1a]/20 text-sm rounded-sm
+                  className="w-full p-3 mt-4 border border-[#002AF0]/30 hover:border-[#002AF0]/40
+                           hover:from-[#002AF0]/20 hover:to-[#002AF0]/10
+                           text-[#002AF0] bg-[#002AF0]/10 hover:bg-[#002AF0]/20 text-sm rounded-sm
                            transition-all duration-200 ease-out
                            disabled:opacity-50 disabled:cursor-not-allowed
-                           focus:outline-none focus:ring-2 focus:ring-[#ff6a1a]/20"
+                           focus:outline-none focus:ring-2 focus:ring-[#002AF0]/20"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>

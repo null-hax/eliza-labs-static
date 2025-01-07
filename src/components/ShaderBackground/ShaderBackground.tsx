@@ -46,9 +46,9 @@ export const ShaderBackground: FC = () => {
           animate="on"
           cDistance={2.4}
           cPolarAngle={95}
-          color1="#ff6a1a"
-          color2="#ec5a11"
-          color3="#FD4912"
+          color1="#002AF0"
+          color2="#002AF0"
+          color3="#0000d3"
           brightness={1.2}
           grain="off"
           uDensity={1.8}

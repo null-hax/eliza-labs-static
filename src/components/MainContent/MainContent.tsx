@@ -49,7 +49,7 @@ export const MainContent: FC = () => {
           <img 
             src="/eliza-os.png" 
             alt="Eliza OS logo" 
-            className="w-auto h-auto max-w-[90%] lg:max-w-[70%] max-h-[25vh] object-contain pointer-events-none invert"
+            className="w-auto h-auto max-w-[90%] lg:max-w-[70%] max-h-[25vh] object-contain pointer-events-none"
           />
           
           <div className={`
@@ -73,7 +73,7 @@ export const MainContent: FC = () => {
                   <motion.img
                     src={`/glyphs/${num}.png`}
                     alt={`Glyph ${num}`}
-                    className="w-2 h-2 lg:w-4 lg:h-4 object-contain opacity-80 hover:opacity-100 transition-opacity pointer-events-none"
+                    className="w-2 h-2 lg:w-4 lg:h-4 object-contain opacity-80 hover:opacity-100 transition-opacity pointer-events-none invert"
                     data-glyph-index={index}
                     data-glyph-number={num}
                     transition={{
@@ -88,7 +88,7 @@ export const MainContent: FC = () => {
 
           <button
             onClick={() => setIsContactFormOpen(true)}
-            className="mt-8 px-6 py-2 text-sm font-secondary rounded focus:outline-none border-none hover:bg-black/60"
+            className="mt-8 px-6 py-2 text-sm font-secondary rounded focus:outline-none border-none bg-white text-black hover:bg-white/80"
           >
             INQUIRIES
           </button>

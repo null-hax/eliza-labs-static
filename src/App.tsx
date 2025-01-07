@@ -42,8 +42,8 @@ const App: FC = () => {
         position="top-right"
         toastOptions={{
           style: {
-            background: 'black',
-            color: '#ff6a1a',
+            background: 'white',
+            color: '#002AF0',
             border: '1px solid rgba(255, 106, 26, 0.3)',
           },
         }}
@@ -54,7 +54,7 @@ const App: FC = () => {
       />
       
       <motion.div 
-        className="relative w-screen h-screen overflow-hidden flex flex-col lg:flex-row bg-[#ff6a1a]"
+        className="relative w-screen h-screen overflow-hidden flex flex-col lg:flex-row bg-[#002AF0]"
         initial={{ opacity: 0 }}
         animate={{ opacity: showContent ? 1 : 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}

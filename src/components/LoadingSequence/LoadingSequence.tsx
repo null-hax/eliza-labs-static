@@ -27,7 +27,7 @@ export const LoadingSequence: FC<LoadingSequenceProps> = ({ isComplete, onComple
             />
             <div className="relative h-[2px] w-[120px]">
               <motion.div 
-                className="absolute inset-0 bg-[#ff6a1a]"
+                className="absolute inset-0 bg-[#002AF0]"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ 
